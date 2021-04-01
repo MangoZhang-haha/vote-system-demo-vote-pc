@@ -5,7 +5,7 @@ spring:
     username: root
     password: 991224
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/vote_system_demo?tinyInt1isBit=false&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/property_manage?tinyInt1isBit=false&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT%2B8
 
 mybatis-plus:
   global-config:
