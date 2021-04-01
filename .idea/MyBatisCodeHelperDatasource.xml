@@ -38,6 +38,18 @@
         </option>
         <option name="tableGenerateConfigs">
           <map>
+            <entry key="vote_system_demo:owner">
+              <value>
+                <TableGenerateConfig>
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="Owner" />
+                  <option name="moduleName" value="vote-system-demo-vote-pc" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="vote_system_demo:vote">
               <value>
                 <TableGenerateConfig>

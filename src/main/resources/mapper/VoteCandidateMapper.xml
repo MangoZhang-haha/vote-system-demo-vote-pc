@@ -3,7 +3,7 @@
 <mapper namespace="flybear.hziee.app.mapper.VoteCandidateMapper">
   <resultMap id="BaseResultMap" type="flybear.hziee.app.entity.VoteCandidate">
     <!--@mbg.generated-->
-    <!--@Table vote_system_demo.vote_candidate-->
+    <!--@Table vote_candidate-->
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="vote_id" jdbcType="BIGINT" property="voteId" />
     <result column="candidate_name" jdbcType="VARCHAR" property="candidateName" />
@@ -17,4 +17,27 @@
     <!--@mbg.generated-->
     id, vote_id, candidate_name, introduce, pic_urls, deleted, gmt_create, gmt_modified
   </sql>
+
+  <insert id="insertList">
+      insert into vote_candidate
+          (
+            vote_id,
+            candidate_name,
+            introduce,
+            pic_urls,
+            gmt_create,
+            gmt_modified
+          )
+      values
+          <foreach collection="list" index="index" item="candidate" separator=",">
+            (
+                #{candidate.voteId,jdbcType=BIGINT},
+                #{candidate.candidateName,jdbcType=VARCHAR},
+                #{candidate.introduce,jdbcType=VARCHAR},
+                #{candidate.picUrls,jdbcType=VARCHAR},
+                #{now,jdbcType=TIMESTAMP},
+                #{now,jdbcType=TIMESTAMP}
+            )
+      </foreach>
+  </insert>
 </mapper>

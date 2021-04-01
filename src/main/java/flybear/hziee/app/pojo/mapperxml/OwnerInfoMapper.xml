@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pojo.mapper.OwnerInfoMapper">
+    <select id="queryOwnerInfoByOwnerID" resultType="com.pojo.OwnerInfo">
+        SELECT
+            `owner`.id AS ownerID,
+            `owner`.owner_name AS ownerName,
+            house.id AS houseID,
+            house.house_number AS houseNumber,
+            unit.unit AS unit,
+            unit.unit_name AS unitName,
+            building.id AS buildingID,
+            building.building_name AS buildingName,
+            community.id AS communityID,
+            community.community_name AS communityName,
+            `owner`.role_type AS roleType,
+            `owner`.face_id AS faceID,
+            `owner`.avatar_url AS avatarUrl
+        FROM
+            `owner`
+            INNER JOIN owner_house ON `owner`.id = owner_house.owner_id
+            INNER JOIN house ON owner_house.house_id = house.id
+            INNER JOIN unit_house ON house.id = unit_house.house_id
+            INNER JOIN unit ON unit_house.unit_table_id = unit.id
+            INNER JOIN building ON unit.building_id = building.id
+            INNER JOIN community_building ON building.id = community_building.building_id
+            INNER JOIN community ON community_building.community_id = community.id
+        WHERE
+            `owner`.id = #{ownerID,jdbcType=BIGINT}
+            and `owner`.deleted = 0
+    </select>
+</mapper>

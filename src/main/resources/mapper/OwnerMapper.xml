@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="flybear.hziee.app.mapper.OwnerMapper">
+  <resultMap id="BaseResultMap" type="flybear.hziee.app.entity.Owner">
+    <!--@mbg.generated-->
+    <!--@Table vote_system_demo.`owner`-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="oid" jdbcType="BIGINT" property="oid" />
+    <result column="face_id" jdbcType="LONGVARCHAR" property="faceId" />
+    <result column="owner_name" jdbcType="VARCHAR" property="ownerName" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="mobilephone" jdbcType="VARCHAR" property="mobilephone" />
+    <result column="telephone" jdbcType="VARBINARY" property="telephone" />
+    <result column="account_type" jdbcType="INTEGER" property="accountType" />
+    <result column="bank_cards" jdbcType="VARCHAR" property="bankCards" />
+    <result column="lastest_login_time" jdbcType="TIMESTAMP" property="lastestLoginTime" />
+    <result column="login_times" jdbcType="BIGINT" property="loginTimes" />
+    <result column="qq_number" jdbcType="VARCHAR" property="qqNumber" />
+    <result column="wechat_number" jdbcType="VARCHAR" property="wechatNumber" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="id_number" jdbcType="VARCHAR" property="idNumber" />
+    <result column="role_type" jdbcType="INTEGER" property="roleType" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="politic_countenance" jdbcType="VARCHAR" property="politicCountenance" />
+    <result column="registered_residence" jdbcType="VARCHAR" property="registeredResidence" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, oid, face_id, owner_name, gender, mobilephone, telephone, account_type, bank_cards, 
+    lastest_login_time, login_times, qq_number, wechat_number, email, id_number, role_type, 
+    nation, politic_countenance, registered_residence, avatar_url, deleted, gmt_create, 
+    gmt_modified
+  </sql>
+</mapper>

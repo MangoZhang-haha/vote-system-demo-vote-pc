@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-@MapperScan({"flybear.hziee.app.mapper", "flybear.hziee.core.mybatis"})
+@MapperScan({"flybear.hziee.app.mapper", "flybear.hziee.core.mybatis", "flybear.hziee.app.pojo.mapper"})
 public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

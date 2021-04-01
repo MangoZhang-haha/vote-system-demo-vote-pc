@@ -1,9 +1,7 @@
 package flybear.hziee.app.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -95,6 +93,18 @@ public class Vote implements Serializable {
     private String ownerNoticedIds;
 
     /**
+     * 投票是否截止
+     */
+    @TableField(exist = false)
+    private Boolean endOrNot;
+
+    /**
+     * 投票的数量
+     */
+    @TableField(exist = false)
+    private Integer voteNumbers;
+
+    /**
      * 访问量
      */
     @TableField(value = "visit_num")
@@ -103,10 +113,10 @@ public class Vote implements Serializable {
     @TableField(value = "deleted")
     private Boolean deleted;
 
-    @TableField(value = "gmt_create")
+    @TableField(value = "gmt_create", fill = FieldFill.INSERT)
     private Date gmtCreate;
 
-    @TableField(value = "gmt_modified")
+    @TableField(value = "gmt_modified", fill = FieldFill.INSERT_UPDATE)
     private Date gmtModified;
 
     private static final long serialVersionUID = 1L;
