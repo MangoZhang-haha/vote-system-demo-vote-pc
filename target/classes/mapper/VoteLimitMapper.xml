@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="flybear.hziee.app.mapper.VoteLimitMapper">
+  <resultMap id="BaseResultMap" type="flybear.hziee.app.entity.VoteLimit">
+    <!--@mbg.generated-->
+    <!--@Table vote_system_demo.vote_limit-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="vote_limit_name" jdbcType="VARCHAR" property="voteLimitName" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="whether_active" jdbcType="BIT" property="whetherActive" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, vote_limit_name, `type`, whether_active, deleted, gmt_create, gmt_modified
+  </sql>
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="flybear.hziee.app.mapper.VoteRecordsMapper">
+  <resultMap id="BaseResultMap" type="flybear.hziee.app.entity.VoteRecords">
+    <!--@mbg.generated-->
+    <!--@Table vote_system_demo.vote_records-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="vote_id" jdbcType="BIGINT" property="voteId" />
+    <result column="owner_id" jdbcType="BIGINT" property="ownerId" />
+    <result column="vote_candidate_table_id" jdbcType="BIGINT" property="voteCandidateTableId" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, vote_id, owner_id, vote_candidate_table_id, deleted, gmt_create, gmt_modified
+  </sql>
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="flybear.hziee.app.mapper.UserMapper">
+    <resultMap id="userInfo" type="flybear.hziee.app.entity.dto.UserInfo">
+		<result column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="real_name" property="realName"/>
+		<result column="active" property="active"/>
+		<result column="phone" property="phone"/>
+		<result column="avatar" property="avatar"/>
+        <collection property="roles" ofType="Role">
+            <result column="r_id" property="id"/>
+            <result column="r_name" property="name"/>
+            <result column="r_role" property="role"/>
+        </collection>
+		<collection property="menus" ofType="Menu">
+			<result column="m_id" property="id"/>
+			<result column="m_pid" property="pid"/>
+			<result column="m_name" property="name"/>
+			<result column="m_icon" property="icon"/>
+			<result column="m_sort" property="sort"/>
+			<result column="m_perms" property="perms"/>
+			<result column="m_url" property="url"/>
+			<result column="m_component" property="component"/>
+			<result column="m_type" property="type"/>
+		</collection>
+    </resultMap>
+
+    <select id="getUserInfo" resultMap="userInfo">
+		SELECT
+			u.id, u.username, u.real_name, u.active, u.phone, u.avatar,
+			r.id AS r_id, r.name AS r_name, r.role AS r_role,
+			m.id AS m_id, m.pid AS m_pid, m.name AS m_name, m.icon AS m_icon,
+				m.sort AS m_sort, m.perms AS m_perms, m.url AS m_url,
+				m.component AS m_component, m.type AS m_type
+		FROM
+			( SELECT * FROM x_user WHERE x_user.id = #{id} ) AS u
+			LEFT JOIN x_user_role AS ur ON ur.user_id = u.id
+			LEFT JOIN x_role AS r ON r.id = ur.role_id AND r.active = 1
+			LEFT JOIN x_role_menu AS rm ON rm.role_id = r.id
+			LEFT JOIN x_menu AS m ON m.id = rm.menu_id AND m.active = 1
+    </select>
+</mapper>

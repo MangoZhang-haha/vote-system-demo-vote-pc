@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="flybear.hziee.app.mapper.VoteCandidateMapper">
+  <resultMap id="BaseResultMap" type="flybear.hziee.app.entity.VoteCandidate">
+    <!--@mbg.generated-->
+    <!--@Table vote_system_demo.vote_candidate-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="vote_id" jdbcType="BIGINT" property="voteId" />
+    <result column="candidate_name" jdbcType="VARCHAR" property="candidateName" />
+    <result column="introduce" jdbcType="LONGVARCHAR" property="introduce" />
+    <result column="pic_urls" jdbcType="VARCHAR" property="picUrls" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, vote_id, candidate_name, introduce, pic_urls, deleted, gmt_create, gmt_modified
+  </sql>
+</mapper>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="flybear.hziee.app.mapper.VoteMapper">
+  <resultMap id="BaseResultMap" type="flybear.hziee.app.entity.Vote">
+    <!--@mbg.generated-->
+    <!--@Table vote_system_demo.vote-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="creator_id" jdbcType="BIGINT" property="creatorId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="introduce" jdbcType="LONGVARCHAR" property="introduce" />
+    <result column="vote_limit_id" jdbcType="BIGINT" property="voteLimitId" />
+    <result column="vote_type_id" jdbcType="BIGINT" property="voteTypeId" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+    <result column="whether_anonym" jdbcType="BIT" property="whetherAnonym" />
+    <result column="whether_replace_by_relatives" jdbcType="BIT" property="whetherReplaceByRelatives" />
+    <result column="whether_draft" jdbcType="BIT" property="whetherDraft" />
+    <result column="owner_noticed_ids" jdbcType="LONGVARCHAR" property="ownerNoticedIds" />
+    <result column="visit_num" jdbcType="BIGINT" property="visitNum" />
+    <result column="deleted" jdbcType="BIT" property="deleted" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, creator_id, title, introduce, vote_limit_id, vote_type_id, start_time, end_time, 
+    whether_anonym, whether_replace_by_relatives, whether_draft, owner_noticed_ids, visit_num, 
+    deleted, gmt_create, gmt_modified
+  </sql>
+</mapper>
