@@ -51,11 +51,19 @@ public class FileUtils {
         return path;
     }
 
-    public static void deleteTmp(String path) {
+    public static void deleteFile(String path) {
         String fileName = path.substring(path.lastIndexOf(File.separator) + 1);
-        File tmp = new File(TMP_PATH, fileName);
-        if (tmp.exists()) {
-            tmp.delete();
+        path = path.substring(path.indexOf(APPLICATION_NAME) - File.separator.length());
+        if (path.contains("/document/")) {
+            File document = new File(DOCUMENT_PATH, fileName);
+            if (document.exists()) {
+                document.delete();
+            }
+        } else if (path.contains("/tmp/")){
+            File tmp = new File(TMP_PATH, fileName);
+            if (tmp.exists()) {
+                tmp.delete();
+            }
         }
     }
 
@@ -78,5 +86,17 @@ public class FileUtils {
             return StringUtils.join(singleUrl, CommonConstant.PIC_URLS_SPLIT_CHARS);
         }
         return "";
+    }
+
+    public static Boolean checkTmpExist(String url) {
+        String[] item = url.split(CommonConstant.PIC_URLS_SPLIT_CHARS);
+        File itemFile = null;
+        for (int i = 0; i < item.length; i++) {
+            itemFile = new File(TMP_PATH, item[i].substring(item[i].lastIndexOf(File.separator) + 1));
+            if (!itemFile.exists()) {
+                return false;
+            }
+        }
+        return true;
     }
 }

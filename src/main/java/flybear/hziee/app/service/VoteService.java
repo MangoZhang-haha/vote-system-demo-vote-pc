@@ -15,5 +15,11 @@ public interface VoteService extends IService<Vote> {
     Integer createVote(Vote vote, List<VoteCandidate> candidateList);
 
     @Transactional(rollbackFor = Exception.class)
+    Integer updateVote(Vote vote, List<VoteCandidate> candidateList);
+
+    @Transactional(rollbackFor = Exception.class)
     Integer deleteVote(Long voteID);
+
+    @Transactional(rollbackFor = Exception.class)
+    Integer toEv(Long voteID);
 }

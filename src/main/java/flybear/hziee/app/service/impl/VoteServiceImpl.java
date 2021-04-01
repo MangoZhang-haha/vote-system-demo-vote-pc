@@ -7,8 +7,10 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import flybear.hziee.app.entity.Vote;
 import flybear.hziee.app.entity.VoteCandidate;
+import flybear.hziee.app.entity.VoteEv;
 import flybear.hziee.app.entity.VoteRecords;
 import flybear.hziee.app.mapper.VoteCandidateMapper;
+import flybear.hziee.app.mapper.VoteEvMapper;
 import flybear.hziee.app.mapper.VoteMapper;
 import flybear.hziee.app.mapper.VoteRecordsMapper;
 import flybear.hziee.app.service.VoteService;
@@ -32,6 +34,9 @@ public class VoteServiceImpl extends ServiceImpl<VoteMapper, Vote> implements Vo
     @Autowired
     private VoteRecordsMapper voteRecordsMapper;
 
+    @Autowired
+    private VoteEvMapper voteEvMapper;
+
     @Override
     public String getNoticedIDs(String json) {
         List<Long> ownerIDs = new ArrayList<>();
@@ -51,7 +56,72 @@ public class VoteServiceImpl extends ServiceImpl<VoteMapper, Vote> implements Vo
             candidate.setVoteId(vote.getId());
             candidate.setPicUrls(FileUtils.moveToDocument(candidate.getPicUrls()));
         }
+        if (!vote.getWhetherDraft() || vote.getWhetherDraft() == null) {
+            VoteEv voteEv = VoteEv.builder()
+                    .voteId(vote.getId())
+                    .applicationId("")
+                    .build();
+            voteEvMapper.insert(voteEv);
+            voteEvMapper.update(
+                    null,
+                    Wrappers.lambdaUpdate(VoteEv.class)
+                            .set(VoteEv::getApplicationId, generatorApplicationID(voteEv.getId()))
+                            .eq(VoteEv::getId, voteEv.getId())
+            );
+            voteMapper.update(
+                    null,
+                    Wrappers.lambdaUpdate(Vote.class)
+                            .set(Vote::getWhetherDraft, false)
+                            .eq(Vote::getId, vote.getId())
+            );
+        }
         return voteCandidateMapper.insertList(candidateList, new Date());
+    }
+
+    @Override
+    public Integer updateVote(Vote vote, List<VoteCandidate> candidateList) {
+        for (VoteCandidate voteCandidate : candidateList) {
+            if (voteCandidate.getPicUrls().contains("/tmp/")) {
+                if (!FileUtils.checkTmpExist(voteCandidate.getPicUrls())) {
+                    System.out.println("voteCandidate = " + voteCandidate.getPicUrls());
+                    return -1;
+                }
+            }
+        }
+
+        voteMapper.updateById(vote);
+
+        for (VoteCandidate voteCandidate : candidateList) {
+            if (voteCandidate.getPicUrls().contains("/tmp/")) {
+                voteCandidate.setPicUrls(FileUtils.moveToDocument(voteCandidate.getPicUrls()));
+            }
+            if (voteCandidate.getId() != null) {
+                voteCandidateMapper.updateById(voteCandidate);
+            } else {
+                voteCandidate.setVoteId(vote.getId());
+                voteCandidateMapper.insert(voteCandidate);
+            }
+        }
+        if (!vote.getWhetherDraft() || vote.getWhetherDraft() == null) {
+            VoteEv voteEv = VoteEv.builder()
+                    .voteId(vote.getId())
+                    .applicationId("")
+                    .build();
+            voteEvMapper.insert(voteEv);
+            voteEvMapper.update(
+                    null,
+                    Wrappers.lambdaUpdate(VoteEv.class)
+                            .set(VoteEv::getApplicationId, generatorApplicationID(voteEv.getId()))
+                            .eq(VoteEv::getId, voteEv.getId())
+            );
+            voteMapper.update(
+                    null,
+                    Wrappers.lambdaUpdate(Vote.class)
+                            .set(Vote::getWhetherDraft, false)
+                            .eq(Vote::getId, vote.getId())
+            );
+        }
+        return 1;
     }
 
     @Override
@@ -66,6 +136,28 @@ public class VoteServiceImpl extends ServiceImpl<VoteMapper, Vote> implements Vo
         voteRecordsMapper.delete(
                 Wrappers.lambdaQuery(VoteRecords.class)
                         .eq(VoteRecords::getVoteId, voteID)
+        );
+        return 1;
+    }
+
+    @Override
+    public Integer toEv(Long voteID) {
+        voteMapper.update(
+                null,
+                Wrappers.lambdaUpdate(Vote.class)
+                        .set(Vote::getWhetherDraft, false)
+                        .eq(Vote::getId, voteID)
+        );
+        VoteEv voteEv = VoteEv.builder()
+                .voteId(voteID)
+                .applicationId("")
+                .build();
+        voteEvMapper.insert(voteEv);
+        voteEvMapper.update(
+                null,
+                Wrappers.lambdaUpdate(VoteEv.class)
+                        .set(VoteEv::getApplicationId, generatorApplicationID(voteEv.getId()))
+                        .eq(VoteEv::getId, voteEv.getId())
         );
         return 1;
     }
@@ -124,6 +216,15 @@ public class VoteServiceImpl extends ServiceImpl<VoteMapper, Vote> implements Vo
                 }
             });
         }
+    }
+
+    /**
+     * 生成 申请编号
+     * @param ID
+     * @return
+     */
+    public String generatorApplicationID(Long ID) {
+        return "V" + String.format("%08d", ID);
     }
 }
 

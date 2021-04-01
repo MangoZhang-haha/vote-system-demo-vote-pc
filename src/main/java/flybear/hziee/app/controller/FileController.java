@@ -30,9 +30,9 @@ public class FileController {
         }
     }
 
-    @DeleteMapping("/tmpDelete")
-    public Result tmpDelete(@RequestParam("path") String path) {
-        FileUtils.deleteTmp(path);
+    @DeleteMapping("/fileDelete")
+    public Result fileDelete(@RequestParam("path") String path) {
+        FileUtils.deleteFile(path);
         return ResultUtil.success();
     }
 }

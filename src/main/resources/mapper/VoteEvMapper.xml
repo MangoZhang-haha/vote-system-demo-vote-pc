@@ -7,13 +7,14 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="vote_id" jdbcType="BIGINT" property="voteId" />
     <result column="application_id" jdbcType="VARCHAR" property="applicationId" />
-    <result column="apply_statis" jdbcType="INTEGER" property="applyStatis" />
+    <result column="apply_status" jdbcType="INTEGER" property="applyStatus" />
+    <result column="operator_id" jdbcType="BIGINT" property="operatorId" />
     <result column="deleted" jdbcType="BIT" property="deleted" />
     <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
     <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    id, vote_id, application_id, apply_statis, deleted, gmt_create, gmt_modified
+    id, vote_id, application_id, apply_status, operator_id, deleted, gmt_create, gmt_modified
   </sql>
 </mapper>

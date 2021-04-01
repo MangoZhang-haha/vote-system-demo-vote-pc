@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "vote_system_demo.vote_type")
+@TableName(value = "vote_type")
 public class VoteType implements Serializable {
     /**
      * 主键

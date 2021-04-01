@@ -141,4 +141,12 @@ public class CandidateController {
         voteRecordsService.voteForCandidate(userID, candidateTableID);
         return ResultUtil.success();
     }
+
+    @DeleteMapping("/delCan/{candidateTableID}")
+    public Result deleteCandidateWhenUpdate(@PathVariable("candidateTableID") Long candidateTableID) {
+        voteCandidateService.delCan(candidateTableID);
+        return ResultUtil.success("删除成功");
+    }
+
+
 }

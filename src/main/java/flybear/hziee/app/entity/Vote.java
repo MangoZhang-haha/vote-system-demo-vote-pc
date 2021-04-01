@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "vote_system_demo.vote")
+@TableName(value = "vote")
 public class Vote implements Serializable {
     /**
      * 主键

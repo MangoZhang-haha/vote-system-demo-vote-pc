@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "vote_system_demo.vote_limit")
+@TableName(value = "vote_limit")
 public class VoteLimit implements Serializable {
     /**
      * 主键

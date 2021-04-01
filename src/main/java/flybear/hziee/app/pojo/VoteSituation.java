@@ -1,6 +1,7 @@
 package flybear.hziee.app.pojo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +19,7 @@ import java.util.Date;
 /**
  * 已投情况 页面
  */
-public class VoteSituation implements Serializable {
-
-    private static final long serialVersionUID = 71841684237304666L;
+public class VoteSituation {
 
     private Long ownerID;
 
@@ -32,4 +31,6 @@ public class VoteSituation implements Serializable {
     private Date voteTime;
 
     private String candidateName;
+
+    private String idNumber;
 }

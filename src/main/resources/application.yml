@@ -30,4 +30,3 @@ mybatis-plus:
       table-prefix: x_
       # 全局逻辑删除字段值
       logic-delete-field: deleted
-

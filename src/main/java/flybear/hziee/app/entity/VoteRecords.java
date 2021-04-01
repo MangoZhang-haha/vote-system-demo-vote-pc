@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName(value = "vote_system_demo.vote_records")
+@TableName(value = "vote_records")
 public class VoteRecords implements Serializable {
     /**
      * 主键

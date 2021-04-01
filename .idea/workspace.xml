@@ -2,42 +2,65 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0a334fe-e14e-40c2-b276-8d2b73dd625e" name="Default Changelist" comment="git">
-      <change afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/CandidateInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/OwnerInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/VoteInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/VoteSituation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/VoteTotalInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/mapper/OwnerInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/mapperxml/OwnerInfoMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/MyBatisCodeHelperDatasource.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MyBatisCodeHelperDatasource.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_annotation_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_boot_starter_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_core_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_baomidou_mybatis_plus_extension_3_3_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/75aa328c-ba9e-4baf-bc65-707ece2f7042.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/75aa328c-ba9e-4baf-bc65-707ece2f7042.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/DictController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/FileController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/MenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/PublicController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/RoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/CandidateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/CandidateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/VoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/controller/VoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/Owner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/Owner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/Vote.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/Vote.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/mapper/VoteCandidateMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/mapper/VoteCandidateMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteRecordsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteRecordsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteCandidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteCandidate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteEv.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteEv.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteLimit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteLimit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteRecords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteRecords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/entity/VoteType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/mapper/VoteEvMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/mapper/VoteEvMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/VoteSituation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/pojo/VoteSituation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteCandidateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteCandidateService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteEvService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteEvService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/VoteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteRecordsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteRecordsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteCandidateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteCandidateServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteEvServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteEvServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/service/impl/VoteServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/util/FileUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/flybear/hziee/app/util/FileUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-prod.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/VoteCandidateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/VoteCandidateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/VoteEvMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/VoteEvMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/flybear/hziee/app/ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/flybear/hziee/app/ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/controller/DictController.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/controller/FileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/controller/FileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/controller/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/controller/PublicController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/controller/RoleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/controller/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/Vote$VoteBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/Vote$VoteBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/Vote.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/Vote.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteCandidate$VoteCandidateBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteCandidate$VoteCandidateBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteCandidate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteCandidate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteEv$VoteEvBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteEv$VoteEvBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteEv.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteEv.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteLimit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteLimit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteRecords.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteRecords.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/entity/VoteType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/mapper/VoteCandidateMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/mapper/VoteCandidateMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteCandidateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteCandidateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteEvService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteEvService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteRecordsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteRecordsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/VoteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteCandidateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteCandidateServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteEvServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteEvServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteRecordsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteRecordsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/flybear/hziee/app/service/impl/VoteServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/VoteCandidateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/VoteCandidateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/VoteEvMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/VoteEvMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/flybear/hziee/app/ApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/flybear/hziee/app/ApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vote-system-demo-vote-pc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/vote-system-demo-vote-pc.iml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -78,8 +101,22 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="vote_system_demo: schema" type="76f4a085:MysqlImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="vote_system_demo: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="vote_ev: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
     </expand>
     <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -145,6 +182,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ApplicationTests.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vote-system-demo-vote-pc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flybear.hziee.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="flybear.hziee.app" />
+      <option name="MAIN_CLASS_NAME" value="flybear.hziee.app.ApplicationTests" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApplicationTests.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vote-system-demo-vote-pc" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="flybear.hziee.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="flybear.hziee.app" />
+      <option name="MAIN_CLASS_NAME" value="flybear.hziee.app.ApplicationTests" />
+      <option name="METHOD_NAME" value="test2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="vote-system-demo-vote-pc" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="flybear.hziee.Application" />
@@ -154,6 +223,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApplicationTests.test2" />
+        <item itemvalue="JUnit.ApplicationTests.test1" />
         <item itemvalue="JUnit.ApplicationTests.test" />
       </list>
     </recent_temporary>
@@ -181,7 +252,7 @@
       <workItem from="1617238930257" duration="3009000" />
       <workItem from="1617242706607" duration="328000" />
       <workItem from="1617243043963" duration="4401000" />
-      <workItem from="1617255967822" duration="3993000" />
+      <workItem from="1617255967822" duration="26593000" />
     </task>
     <task id="LOCAL-00001" summary="git">
       <created>1617241526824</created>
@@ -211,7 +282,28 @@
       <option name="project" value="LOCAL" />
       <updated>1617243504001</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="git">
+      <created>1617262676614</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617262676615</updated>
+    </task>
+    <task id="LOCAL-00006" summary="git">
+      <created>1617262833322</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617262833322</updated>
+    </task>
+    <task id="LOCAL-00007" summary="git">
+      <created>1617263738661</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617263738661</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

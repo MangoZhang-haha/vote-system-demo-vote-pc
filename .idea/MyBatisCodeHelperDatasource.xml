@@ -76,6 +76,8 @@
                   <option name="generatedKey" value="id" />
                   <option name="javaModelName" value="VoteEv" />
                   <option name="moduleName" value="vote-system-demo-vote-pc" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
                   <option name="useActualColumnName" value="false" />
                 </TableGenerateConfig>
               </value>

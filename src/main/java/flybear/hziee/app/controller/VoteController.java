@@ -2,15 +2,13 @@ package flybear.hziee.app.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import flybear.hziee.app.constant.CommonConstant;
 import flybear.hziee.app.entity.*;
 import flybear.hziee.app.pojo.VoteInfo;
 import flybear.hziee.app.pojo.VoteSituation;
-import flybear.hziee.app.service.OwnerService;
-import flybear.hziee.app.service.VoteCandidateService;
-import flybear.hziee.app.service.VoteRecordsService;
-import flybear.hziee.app.service.VoteService;
+import flybear.hziee.app.service.*;
 import flybear.hziee.app.util.ResultUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +28,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/vote")
 public class VoteController {
 
+    private final Integer PASS_STATUS = 1;
+
     @Value("${file.tmp}")
     private String tmpPath;
 
@@ -44,6 +44,9 @@ public class VoteController {
 
     @Autowired
     private OwnerService ownerService;
+
+    @Autowired
+    private VoteEvService voteEvService;
 
     @PostMapping
     public Result create(@RequestBody Map<String, Object> map) {
@@ -108,12 +111,26 @@ public class VoteController {
 
     @GetMapping
     public Result getVoteList() {
+        List<VoteEv> voteEvs = voteEvService.list(
+                Wrappers.lambdaQuery(VoteEv.class)
+                        .select(VoteEv::getVoteId)
+                        .eq(VoteEv::getApplyStatus, PASS_STATUS)
+        );
+        List<Long> votePassIDs = new ArrayList<>();
+        voteEvs.forEach(voteEv -> {
+            votePassIDs.add(voteEv.getVoteId());
+        });
+        if (votePassIDs.size() == 0) {
+            return ResultUtil.success(null);
+        }
+
         List<Vote> list = voteService.list(
                 Wrappers.lambdaQuery(Vote.class)
                         .select(
                                 Vote::getId, Vote::getTitle, Vote::getWhetherDraft,
                                 Vote::getVisitNum, Vote::getStartTime, Vote::getEndTime
                         )
+                        .in(Vote::getId, votePassIDs)
                         .orderByDesc(Vote::getGmtCreate)
         );
         Date now = new Date();
@@ -268,5 +285,63 @@ public class VoteController {
             });
         }
         return ResultUtil.success(voteSituations);
+    }
+
+    @PostMapping("/{voteID}")
+    public Result toEv(@PathVariable("voteID") Long voteID) {
+        voteService.toEv(voteID);
+        return ResultUtil.success("提交成功");
+    }
+
+    @PostMapping("/update/{voteID}")
+    public Result updateVote(@PathVariable("voteID") Long voteID,
+                             @RequestBody Map<String, Object> map) {
+        List<Map<String, Object>> candidateList = JSONObject.parseObject(JSONObject.toJSONString(map.get("candidate")),ArrayList.class);
+        List<VoteCandidate> voteCandidateList = new ArrayList<>();
+        for (Map<String, Object> candidateMap : candidateList){
+            List<String> urlList = JSONObject.parseObject(JSONObject.toJSONString(candidateMap.get("url")),ArrayList.class);
+            VoteCandidate voteCandidate = VoteCandidate.builder()
+                    .id(candidateMap.get("canID") != null ? Long.parseLong(candidateMap.get("canID").toString()) : null)
+                    .candidateName(candidateMap.get("canName").toString())
+                    .introduce(candidateMap.get("canInfo").toString())
+                    .picUrls(StringUtils.join(urlList, CommonConstant.PIC_URLS_SPLIT_CHARS))
+                    .build();
+            voteCandidateList.add(voteCandidate);
+        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try{
+            Map<String, JSONArray> jsonArrayMap = new HashMap<>();
+            jsonArrayMap.put("range", JSONArray.parseArray(JSONObject.toJSONString(map.get("range"))));
+            String noticedIDs = voteService.getNoticedIDs(JSONObject.toJSONString(jsonArrayMap));
+            if (!StringUtils.isNotEmpty(noticedIDs)){
+                return ResultUtil.error("投票范围不能为空");
+            }
+            Vote vote = Vote.builder()
+                    .id(voteID)
+                    .creatorId(Long.parseLong(map.get("id").toString()))
+                    .title(map.get("title").toString())
+                    .introduce(map.get("detail").toString())
+                    .voteTypeId(Long.parseLong(map.get("typeId").toString()))
+                    .voteLimitId(Long.parseLong(map.get("limit").toString()))
+                    .startTime(simpleDateFormat.parse(map.get("startTime").toString()))
+                    .endTime(simpleDateFormat.parse(map.get("endTime").toString()))
+                    .whetherAnonym(Boolean.parseBoolean(map.get("anonym").toString()))
+                    .whetherReplaceByRelatives(Boolean.parseBoolean(map.get("relatives").toString()))
+                    .whetherDraft(Boolean.parseBoolean(map.get("draft").toString()))
+                    .ownerNoticedIds(noticedIDs)
+                    .build();
+
+            Integer result = voteService.updateVote(vote,voteCandidateList);
+            if (result > 0){
+                return ResultUtil.success(vote);
+            } else if (result == -1) {
+                return ResultUtil.error("请重新上传图片");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+            ResultUtil.error("参数有误");
+        }
+        return ResultUtil.error("修改失败");
     }
 }
