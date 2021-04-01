@@ -1,65 +1,38 @@
 package flybear.hziee.app.controller;
 
 import flybear.hziee.app.entity.Result;
-import flybear.hziee.app.util.FileUploadUtil;
+import flybear.hziee.app.util.FileUtils;
 import flybear.hziee.app.util.ResultUtil;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 /**
- * 文件控制器
- *
- * @author flybear
- * @since 2019/12/22 21:10
+ * @author Mango
+ * @Date: 2021/3/22 14:45:24
  */
 @RestController
+@RequestMapping("/file")
 public class FileController {
 
-    /**
-     * 上传文件接口，保存的是临时文件
-     *
-     * @param file MultipartFile
-     * @return 临时文件访问地址
-     */
-    @PostMapping("upload")
-    @RequiresAuthentication
-    public Result<String> upload(MultipartFile file) {
-        return ResultUtil.success(FileUploadUtil.uploadTempFile(file));
+    @PostMapping("/tmpUpload")
+    public Result tmpUpload(@RequestParam(value = "file", required = false) MultipartFile multipartFile) throws IOException {
+        if (multipartFile == null) {
+            return ResultUtil.error("请选择文件上传");
+        }
+        if (StringUtils.isNotEmpty(multipartFile.getOriginalFilename())) {
+            String url = FileUtils.uploadTmp(multipartFile);
+            return ResultUtil.success(url);
+        } else {
+            return ResultUtil.error("文件不能为空");
+        }
     }
 
-    /**
-     * 上传文件接口，保存的是临时文件
-     *
-     * @param files MultipartFile[]
-     * @return 临时文件访问地址
-     */
-    @PostMapping("uploads")
-    @RequiresAuthentication
-    public Result<String[]> upload(MultipartFile[] files) {
-        String[] savePaths = new String[files.length];
-        for (int i = 0; i < files.length; i++) {
-            MultipartFile file = files[i];
-            savePaths[i] = FileUploadUtil.uploadTempFile(file);
-        }
-        return ResultUtil.success(savePaths);
-    }
-
-    /**
-     * 删除临时文件
-     *
-     * @param fileUrl 临时文件访问地址
-     * @return 是否成功
-     */
-    @DeleteMapping("file")
-    @RequiresAuthentication
-    public Result removeTempFile(String fileUrl) {
-        if (FileUploadUtil.isTempUrl(fileUrl)) {
-            FileUploadUtil.deleteFile(fileUrl);
-        }
+    @DeleteMapping("/tmpDelete")
+    public Result tmpDelete(@RequestParam("path") String path) {
+        FileUtils.deleteTmp(path);
         return ResultUtil.success();
     }
-
 }
